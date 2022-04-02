@@ -118,60 +118,7 @@
 </div>
 
 <script>
-	/*
-	(function (global) {
-
-		if(typeof (global) === "undefined")
-		{
-			throw new Error("window is undefined");
-		}
-
-		var _hash = "!";
-		var noBackPlease = function () {
-		global.location.href += "#"; //global.location.href += "#";
-
-
-			// making sure we have the fruit available for juice....
-			// 50 milliseconds for just once do not cost much (^__^)
-		global.setTimeout(function () {
-		    global.location.href += "!"; //global.location.href += "!";
-		}, 50);
-		};
-
-		// Earlier we had setInerval here....
-		global.onhashchange = function () {
-		if (global.location.hash !== _hash) {
-		    global.location.hash = _hash;
-		}
-		};
-
-		global.onload = function () {
-
-			noBackPlease();
-
-			// disables backspace on page except on input fields and textarea..
-			document.body.onkeydown = function (e) {
-			var elm = e.target.nodeName.toLowerCase();
-			if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
-					e.preventDefault();
-			}
-			// stopping event bubbling up the DOM tree..
-			e.stopPropagation();
-			};
-
-		};
-
-	})(window);
-	*/
-
-	// window.addEventListener("beforeunload", this.onUnload);
-
-
-	//onUnload = e => { 
-   	//	return false;
-    
- 	//}
-	
+		
 	
 	history.pushState(null, document.title, location.href);
     		history.back();
@@ -185,19 +132,7 @@
 	window.onbeforeunload = function() {
         	return "bạn muốn tải lại trang chương trình?";
     	}
-	/*
-	$(document).ready(function(){
-        	window.onbeforeunload = PopIt;
-        	$("a").click(function(){ window.onbeforeunload = UnPopIt; });
-        	$(document).keydown(function(e){
-            		if ((e.keyCode == 82 && e.ctrlKey) || (e.keyCode == 116)) {
-                		window.onbeforeunload = UnPopIt;
-            		}
-        	});
-  	});
-	*/
-  	//function PopIt() { return "My message before leaving"; }
-  	//function UnPopIt()  { /* nothing to return */ }
+	
 	
 	function EID(NameID) {return document.getElementById(NameID);}
     	
@@ -222,9 +157,22 @@
 		}
 	}
 	
+
+	function openFullscreen(elem) {
+	  if (elem.requestFullscreen) {
+	    elem.requestFullscreen();
+	  } else if (elem.webkitRequestFullscreen) { /* Safari */
+	    elem.webkitRequestFullscreen();
+	  } else if (elem.msRequestFullscreen) { /* IE11 */
+	    elem.msRequestFullscreen();
+	  }
+	}
+	
+	
 	window.addEventListener('DOMContentLoaded', (event) => {
     		RunFirst('get','slag','','','','');
 		//RunFirst('get','slag','','');
+		openFullscreen(document.body);
 	});
     
 	async function RunFirst(x0, x1, x2, x3, x4, x5) {
