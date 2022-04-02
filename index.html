@@ -93,7 +93,7 @@
 
 </style>
 </head>
-<body onkeydown="return (event.keyCode != 116)" onclick="openFullscreen()">
+<body onkeydown="return (event.keyCode != 116)" onclick="lock('portrait')">
 
 <div id="Audio" style="display:none">
 	<audio id="myAudio1">
@@ -158,16 +158,18 @@
 	}
 	
 
-	function openFullscreen() {
-		var elem = document.body;
-	  	if (elem.requestFullscreen) {
-	    		elem.requestFullscreen();
-	  	} else if (elem.webkitRequestFullscreen) { /* Safari */
-	    		elem.webkitRequestFullscreen();
-	  	} else if (elem.msRequestFullscreen) { /* IE11 */
-	    	elem.msRequestFullscreen();
-	  	}
+	function lock (orientation) {
+		  // (A1) GO INTO FULL SCREEN FIRST
+		  let de = document.documentElement;
+		  if (de.requestFullscreen) { de.requestFullscreen(); }
+		  else if (de.mozRequestFullScreen) { de.mozRequestFullScreen(); }
+		  else if (de.webkitRequestFullscreen) { de.webkitRequestFullscreen(); }
+		  else if (de.msRequestFullscreen) { de.msRequestFullscreen(); }
+
+		  // (A2) THEN LOCK ORIENTATION
+		  screen.orientation.lock(orientation);
 	}
+
 	
 	
 	window.addEventListener('DOMContentLoaded', (event) => {
