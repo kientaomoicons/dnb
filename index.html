@@ -133,6 +133,9 @@
         	return "bạn muốn tải lại trang chương trình?";
     	}
 	
+	window.addEventListener("orientationchange", event => {
+  		alert("the orientation of the device is now " + event.target.screen.orientation.angle);
+	});
 	
 	function EID(NameID) {return document.getElementById(NameID);}
     	
