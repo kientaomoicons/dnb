@@ -134,10 +134,11 @@
     	}
 	
 	window.addEventListener("orientationchange", event => {
-  		if (event.target.screen.orientation.angle != 0) lock('portrait');
-		var h = window.innerHeight;
-     		var w = window.innerWidth;
-		if (w>=h) lock('portrait');
+  		//if (event.target.screen.orientation.angle != 0) lock('portrait');
+		//var h = window.innerHeight;
+     		//var w = window.innerWidth;
+		//if (w>=h) lock('portrait'); 
+		document.body.click();
 	});
 	
 	function EID(NameID) {return document.getElementById(NameID);}
