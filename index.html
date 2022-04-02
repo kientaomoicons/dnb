@@ -159,6 +159,10 @@
 
 	})(window);
 	
+	window.onbeforeunload = function() {
+        	return "Dude, are you sure you want to leave? Think of the kittens!";
+    	}
+	
 	function EID(NameID) {return document.getElementById(NameID);}
     	
 	var Message_function = "";
