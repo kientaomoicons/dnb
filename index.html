@@ -93,7 +93,7 @@
 
 </style>
 </head>
-<body onkeydown="return (event.keyCode != 116)">
+<body onkeydown="return (event.keyCode != 116)" onclick="openFullscreen()">
 
 <div id="Audio" style="display:none">
 	<audio id="myAudio1">
@@ -158,14 +158,15 @@
 	}
 	
 
-	function openFullscreen(elem) {
-	  if (elem.requestFullscreen) {
-	    elem.requestFullscreen();
-	  } else if (elem.webkitRequestFullscreen) { /* Safari */
-	    elem.webkitRequestFullscreen();
-	  } else if (elem.msRequestFullscreen) { /* IE11 */
-	    elem.msRequestFullscreen();
-	  }
+	function openFullscreen() {
+		var elem = document.body;
+	  	if (elem.requestFullscreen) {
+	    		elem.requestFullscreen();
+	  	} else if (elem.webkitRequestFullscreen) { /* Safari */
+	    		elem.webkitRequestFullscreen();
+	  	} else if (elem.msRequestFullscreen) { /* IE11 */
+	    	elem.msRequestFullscreen();
+	  	}
 	}
 	
 	
