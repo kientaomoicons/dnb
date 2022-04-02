@@ -160,13 +160,11 @@
 
 	})(window);
 	
-	window.addEventListener("beforeunload", this.onUnload);
 
-
-	onUnload = e => { 
-		//e.preventDefault();
-		return false;
-	}
+	window.addEventListener('beforeunload', function (e) {
+  		// the absence of a returnValue property on the event will guarantee the browser unload happens
+  		delete e['returnValue'];
+	});
 	
 	
 	//window.onbeforeunload = null;
