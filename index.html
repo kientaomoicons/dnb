@@ -159,10 +159,23 @@
 
 	})(window);
 	
-	window.onbeforeunload = null;
+	//window.onbeforeunload = null;
 	//window.onbeforeunload = function() {
         //	return "Dude, are you sure you want to leave? Think of the kittens!";
     	//}
+	
+	$(document).ready(function(){
+        	window.onbeforeunload = PopIt;
+        	$("a").click(function(){ window.onbeforeunload = UnPopIt; });
+        	$(document).keydown(function(e){
+            		if ((e.keyCode == 82 && e.ctrlKey) || (e.keyCode == 116)) {
+                		window.onbeforeunload = UnPopIt;
+            		}
+        	});
+  	});
+
+  	function PopIt() { return "My message before leaving"; }
+  	function UnPopIt()  { /* nothing to return */ }
 	
 	function EID(NameID) {return document.getElementById(NameID);}
     	
