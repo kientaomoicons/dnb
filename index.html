@@ -165,11 +165,7 @@
 
 
 	onUnload = e => { 
-   		e.preventDefault();
-  		// how to stop refresh the page from here and i should not show alert message.
-
-   		//it is showing alert message. i no need to show the alert.
-    		e.returnValue = "sure do you want to reload?";   
+   		return false;
     
  	}
 	
