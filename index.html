@@ -117,6 +117,7 @@
 </div>
 
 <script>
+	/*
 	(function (global) {
 
 		if(typeof (global) === "undefined")
@@ -160,7 +161,7 @@
 		};
 
 	})(window);
-	
+	*/
 
 	// window.addEventListener("beforeunload", this.onUnload);
 
@@ -171,10 +172,18 @@
  	//}
 	
 	
-	window.onbeforeunload = null;
-	//window.onbeforeunload = function() {
-        //	return "bạn muốn tải lại trang chương trình?";
-    	//}
+	history.pushState(null, document.title, location.href);
+    		history.back();
+    		history.forward();
+    		window.onpopstate = function () {
+        	history.go(1);
+    	};
+	
+	
+	//window.onbeforeunload = null;
+	window.onbeforeunload = function() {
+        	return "bạn muốn tải lại trang chương trình?";
+    	}
 	/*
 	$(document).ready(function(){
         	window.onbeforeunload = PopIt;
