@@ -177,6 +177,8 @@
 	
 
 	function lock (orientation) {
+		EID('Gioithieu').style.display = 'none';
+		
 		  // (A1) GO INTO FULL SCREEN FIRST
 		  let de = document.documentElement;
 		  if (de.requestFullscreen) { de.requestFullscreen(); }
